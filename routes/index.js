@@ -22,25 +22,26 @@ router.post("/contact-user", async (req, res) => {
 });
 
 router.get("/mail", async (req, res) => {
-
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
 
     auth: {
-      user: 'a02f093028f93a', // generated ethereal user
+      user: "a02f093028f93a", // generated ethereal user
       pass: "ea8e2485f3286d", // generated ethereal password
     },
   });
-  let info = await transporter.sendMail({
-    from: `"Talha Baig" <baigtalha7@gmail.com>`, // sender address
-    to: 'wasiqibnzahid@gmail.com', // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  }).then(res => console.log(res, 'a'))
-  res.send("ok")
+  let info = await transporter
+    .sendMail({
+      from: `"Talha Baig" <baigtalha7@gmail.com>`, // sender address
+      to: "wasiqibnzahid@gmail.com", // list of receivers
+      subject: "Hello ✔", // Subject line
+      text: "Hello world?", // plain text body
+      html: "<b>Hello world?</b>", // html body
+    })
+    .then(() => {});
+  res.send("done");
 });
 
 module.exports = router;
