@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const sendMail = require("./functions")
 const Routes = require("./routes");
 const app = express();
 const PORT = 3000;
