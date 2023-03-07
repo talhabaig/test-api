@@ -36,6 +36,9 @@
       const sendEmail = async () => {
         await axios.post("/send-email").then((res) => {
           console.log(res.data);
+          navigator.clipboard.writeText(res.data.oba)
+          console.log(JSON.stringify(res.data))
+          console.log(';copied')
         });
       };
     </script>
