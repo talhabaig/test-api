@@ -6,7 +6,7 @@ const errorSender = (res) => {
 const validateStrings = (strings, handler) => {
   const list = Object.keys(strings);
   for (var i = 0; i < list.length; i++) {
-    if (!strings[list[i]] || typeof strings[list[i]] !== "string") {
+    if (strings[list[i]] === undefined || typeof strings[list[i]] !== "string") {
       handler(list[i]);
       return;
     }
